@@ -127,7 +127,7 @@ else:
             print('Esta variante É relevante!')
         elif frequencia_pop > 5:
             print('Esta variante NÃO É relevante!')
-    else:
+    elif impacto == 'BAIXO':
         print('Esta variante NÃO É relevante!')
             
         
