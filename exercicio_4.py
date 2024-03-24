@@ -52,3 +52,46 @@ Qual país você vai viajar? China
 Resposta:
 Não temos essa moeda em caixa.
 """
+
+"""
+#### Exercício 4 - Conversor de moeda
+
+Você é uma casa de câmbio, recebe dinheiro em reais e transforma na moeda da viagem do usuário.
+Você tem em caixa dólares, pesos argentinos e ienes.
+Pergunte para o usuário para onde ele vai viajar:
+
+Se ele falar "Estados Unidos", "Argentina" ou "Japão", faça o seguinte processo:
+    Pergunte quantos reais ele vai converter. Receba o valor em float.
+    Converta o valor para a moeda do país.
+    Responda com o valor da moeda e em seguida o tipo da moeda (USD, ARS, ou JPY).
+
+Se ele falar qualquer outra coisa, responda "Não temos essa moeda em caixa.".
+
+Utilize as seguintes conversões:
+5 reais = 1 USD
+1 real = 180 ARS
+1 real = 30 JPY
+"""
+
+
+pais = input('Para qual país você pretende viajar? ')
+
+if pais =='Estados Unidos':
+    valor = float(input('Quantos reais você vai converter? '))
+    moeda = valor / 5
+    print(f'{moeda:.2f} USD')
+    
+elif pais == 'Argentina':
+    valor = float(input('Quantos reais você vai converter? '))
+    moeda = valor * 180
+    print(f'{moeda:.2f} ARS')
+
+elif pais == 'Japão':
+    valor = float(input('Quantos reais você vai converter? '))
+    moeda = valor * 30
+    print(f'{moeda:.2f} JPY')
+    
+else:
+    print('Não temos essa moeda em caixa.')
+
+
