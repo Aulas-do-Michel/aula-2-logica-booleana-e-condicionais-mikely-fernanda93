@@ -117,12 +117,9 @@ impacto = input("Digite o impacto => ALTO ou BAIXO. ")
 reads = int(input("Digite quantos Reads a variante tem (inteiros). "))
 vaf = float(input("Digite Frequência Alélica da variante em porcentagem (entre 0 e 100). "))
 
-#frequencia_pop = frequencia_pop / 100
-#vaf = vaf / 100
-
 if reads < 10 or vaf < 20:
     print("Não é relevante, pois deve ser um artefato.")
-elif (impacto == 'BAIXO') or (frequencia_pop > 5 and (gene == "HFE") or (gene == "MEFV") or (gene == "GJB2")):
+elif ((impacto == 'BAIXO' or impacto == 'Baixo')) or (frequencia_pop > 5 and (gene == "HFE") or (gene == "MEFV") or (gene == "GJB2")):
         print('Não é relevante.')
 else:
     print('É relevante!')
