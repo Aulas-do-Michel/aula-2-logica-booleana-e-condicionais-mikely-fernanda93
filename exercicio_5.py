@@ -111,16 +111,23 @@ Se ela não for um artefato temos que avaliar as seguintes coisas:
 genes de exceção: "HFE", "MEFV" ou "GJB2".
 """
 
-frequencia_pop = float(input("Digite a Frequencia Populacional em porcentagem (entre 0 e 100): "))
-gene = input("Digite o Gene. ")
-impacto = input("Digite o impacto => ALTO ou BAIXO. ")
-reads = int(input("Digite quantos Reads a variante tem (inteiros). "))
-vaf = float(input("Digite Frequência Alélica da variante em porcentagem (entre 0 e 100). "))
+frequencia_populacional = float(input('Digite a frequencia populacional (em porcentagem):'))
+gene = input('Digite o gene:')
+impacto = input('Digite a Impacto (ALTO ou BAIXO):')
+reads = float(input('Digite os reads:'))
+frequencia_alelica = float(input('Digite a frequencia alélica (em porcentagem):'))
 
-if reads < 10 or vaf < 20:
-    print("Não é relevante, pois deve ser um artefato.")
-elif ((impacto == 'BAIXO' or impacto == 'Baixo')) or (frequencia_pop > 5 and (gene == "HFE") or (gene == "MEFV") or (gene == "GJB2")):
-        print('Não é relevante.')
+eh_artefato = (frequencia_alelica < 20) or (reads < 10)
+impacto_baixo = impacto == 'BAIXO'
+esta_em_genes_de_excecao = (gene == 'HFE') or (gene == 'MEFV') or (gene == 'GJB2')
+frequencia_populacional_alta = frequencia_populacional > 5
+
+if eh_artefato:
+    print('Não é relevante.')
+elif impacto_baixo or (frequencia_populacional_alta and not esta_em_genes_de_excecao):
+    print('Não é relevante.')
 else:
-    print('É relevante!')
+    print('É relevante.')
+
+
         
